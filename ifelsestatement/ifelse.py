@@ -137,8 +137,9 @@ def get_curr(cur):
     return switcher.get(cur,"Invalid input")
 
 print("Convert your currency to USD.")
+currency_convertor = True
 
-while(True):
+while(currency_convertor):
     print("Press 1 for eur, 2 for uah, 3 for chf, 4 for rub, 5 for byn, 6 for exit.")
 
     target_currency =  get_curr(input())
