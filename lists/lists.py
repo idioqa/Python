@@ -37,19 +37,50 @@ rand_whole_nums = [random.randint(0,100) for x in range(100)]
 print("Random whole numbers = ", rand_whole_nums)
 
 #9.Написать функцию которая, получив на вход любой из выше созданных списков, разобьёт его списки по 5 элементов.
-#separated_list = 
 
-print("----------------")
-temp_list = []
-data = []
-for i in range(len(whole_nums)):
-  print("i = ", i, "value = ", whole_nums[i])
-  if len(temp_list) == 5:
-    data.append(temp_list)
-    print("i = ", i, "data = ", data)
-    print("i = ", i, "temp_list = ", temp_list)
-    temp_list.clear()
-  temp_list.append(whole_nums[i])
+def separate(arr, size):
+    sep_arr = []
+    while len(arr) > size:
+        piece = arr[:size]
+        sep_arr.append(piece)
+        arr = arr[size:]
+    sep_arr.append(arr)
+    return sep_arr
 
-print("temp_list = ", temp_list)
-print("data = ", data)
+print(separate(whole_nums, 5))
+
+#10.Написать функцию которая, получив на вход список целых чисел, вернёт 2 списка, список чётных и список нечётных чисел. 
+
+def split_odd_even(arr):
+  odd = []
+  even = []
+  for i in arr:
+    if i % 2: odd.append(i)
+    elif not(i % 2): even.append(i)
+  return [odd, even]
+
+print(split_odd_even(whole_nums))
+
+#11.Написать скрипт который сгенерирует список под названием 5_stars из списков по 5 элементов целых чисел.
+
+def unite(arr):
+  unite_arr = []
+  for i in arr:
+    unite_arr += i
+  return unite_arr
+    
+print("unite = ", unite(separate(whole_nums, 5)))
+
+#12.Написать скрипт который выведет список из сумм каждого внутреннего списка из  5_stars 
+
+def sum_list(arr):
+  sum_arr = []
+  for i in arr:
+    sum = 0
+    for j in range(len(i)):
+      sum += i[j]
+    sum_arr.append(sum)
+  return sum_arr
+
+print(sum_list(separate(whole_nums, 5)))
+      
