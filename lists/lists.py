@@ -229,3 +229,17 @@ woman = [i[0] for i in get_genders(100) if i[2] == 1]
 #26.Написать скрипт который создаст список имён неженатых мужчин из family.
 #27.Написать скрипт который создаст список имён незамужних женщин из family.
 
+unmarried = [i[0] for i in generate_family_list(100) if i[2] == False]
+unm_man = []
+for i in man:
+  for j in unmarried:
+    if i == j: unm_man.append(i)
+
+print("Unmarried man: ", unm_man)
+
+unm_woman = []
+for i in woman:
+  for j in unmarried:
+    if i == j: unm_woman.append(i)
+
+print("Unmarried woman: ", unm_woman)
